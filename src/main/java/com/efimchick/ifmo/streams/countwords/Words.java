@@ -23,8 +23,13 @@ public class Words {
                 .sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue()))
                 .map(stringLongEntry -> String.format("%s - %d\n", stringLongEntry.getKey(), stringLongEntry.getValue()))
                 .collect(Collectors.joining());
+        StringBuilder stringBuilder = removeLastChar(string);
+        return stringBuilder.toString();
+    }
+
+    private StringBuilder removeLastChar(String string) {
         StringBuilder stringBuilder = new StringBuilder(string);
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        return stringBuilder.toString();
+        return stringBuilder;
     }
 }
